@@ -8,4 +8,4 @@ services:
     #   - "3001:3000"
     volumes:
       - ./node_volume/:/opt/node_volume/
-    command: bash -c "cd /opt/node_volume/ceep && npm install"
+    command: bash -c "cd /opt/node_volume/ceep && npm install --silent"
