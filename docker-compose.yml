@@ -1,0 +1,40 @@
+version: '3.9'
+
+services:
+  # react:
+  #   image: node:16.13.2
+  #   container_name: react
+  #   ports:
+  #     - "3001:3000"
+  #   volumes:
+  #     - ./node_volume/:/opt/node_volume/
+  #   command: bash -c "cd /opt/node_volume/ceep && npm start"
+  
+  cadastrador:
+    container_name: cadastrador
+    build:
+      dockerfile: build/cadastrador/Dockerfile
+      context: .
+    networks:
+      - backend
+    depends_on:
+      - "bancodedados"
+  
+  bancodedados:
+    container_name: bancodedados
+    build:
+      dockerfile: build/bancodedados/Dockerfile
+      context: .
+    networks:
+      - backend
+    ports:
+      - "3306:3306"
+    volumes:
+      - bancodedados:/var/lib/mysql
+
+volumes:
+  bancodedados:
+
+networks:
+  backend:
+    

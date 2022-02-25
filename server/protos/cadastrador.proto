@@ -1,0 +1,25 @@
+syntax = "proto3";
+package cadastrador;
+
+service Cadastrador{
+    rpc Cadastra (Aluno) returns (DatabaseResponse) {};
+    rpc RemoveCadastro (ID) returns (DatabaseResponse) {};
+    rpc ListaCadastro (Void) returns (stream Aluno) {};
+}
+
+message Void{
+
+}
+
+message ID{
+    int32 id=1;
+}
+
+message DatabaseResponse{
+    string message = 1;
+}
+
+message Aluno{
+    string Nome = 1;
+    int32 GUB = 2;
+}
