@@ -29,8 +29,6 @@ services:
       - MYSQL_ROOT_HOST='%'
     networks:
       - backend
-    # ports:
-    #   - "3306:3306"
     volumes:
       - bancodedados:/var/lib/mysql
 
