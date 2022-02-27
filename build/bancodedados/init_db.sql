@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS aluno(
 );
 
 CREATE TABLE IF NOT EXISTS avaliacao(
-  id_avalicao INT(11) UNIQUE AUTO_INCREMENT,
+  id_avaliacao INT(11) UNIQUE AUTO_INCREMENT,
   id_aluno INT(11),
   mestre VARCHAR(255),
   gub VARCHAR(255),
