@@ -1,0 +1,3 @@
+
+class MySQLAPI():
+    pass

@@ -25,10 +25,12 @@ services:
     build:
       dockerfile: build/bancodedados/Dockerfile
       context: .
+    environment:
+      - MYSQL_ROOT_HOST='%'
     networks:
       - backend
-    ports:
-      - "3306:3306"
+    # ports:
+    #   - "3306:3306"
     volumes:
       - bancodedados:/var/lib/mysql
 
