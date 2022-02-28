@@ -15,11 +15,17 @@ class MySQLAPI():
         self._connection.commit()
         return self._cursor.lastrowid
 
-    def select(self, table, fields, condition = '1'):
-        cmd_sql = f"SELECT {fields} FROM {table} WHERE {condition}"
+    def select(self, table, fields, filter = '1'):
+        # TODO prevent SQL injection by using %s
+        cmd_sql = f"SELECT {fields} FROM {table} WHERE {filter}"
         self._cursor.execute(cmd_sql)
         return self._cursor.fetchall()
 
+    def delete(self, table, filter):
+        # TODO prevent SQL injection by using %s
+        cmd_sql = f"DELETE FROM {table} WHERE {filter}"
+        self._cursor.execute(cmd_sql)
+        self._connection.commit()
 
-    def get_connection(self):
-        return self._connection
+    def update(self):
+        pass
