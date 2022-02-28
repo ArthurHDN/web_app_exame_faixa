@@ -5,7 +5,7 @@ service Cadastrador{
     rpc CadastraEscola (Escola) returns (DatabaseResponse) {};
     rpc CadastraAluno (Aluno) returns (DatabaseResponse) {};
     rpc ListaEscola (Void) returns (stream Escola) {};
-    rpc ListaAluno (Void) returns (stream Escola) {};
+    rpc ListaAluno (Void) returns (stream Aluno) {};
     rpc RemoveEscola (ID) returns (DatabaseResponse) {};
     rpc RemoveAluno (ID) returns (DatabaseResponse) {};
 }
