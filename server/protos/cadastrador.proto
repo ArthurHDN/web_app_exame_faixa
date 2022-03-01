@@ -2,9 +2,12 @@ syntax = "proto3";
 package cadastrador;
 
 service Cadastrador{
-    rpc Cadastra (Aluno) returns (DatabaseResponse) {};
-    rpc RemoveCadastro (ID) returns (DatabaseResponse) {};
-    rpc ListaCadastro (Void) returns (stream Aluno) {};
+    rpc CadastraEscola (Escola) returns (DatabaseResponse) {};
+    rpc CadastraAluno (Aluno) returns (DatabaseResponse) {};
+    rpc ListaEscola (Void) returns (stream Escola) {};
+    rpc ListaAluno (Void) returns (stream Aluno) {};
+    rpc RemoveEscola (ID) returns (DatabaseResponse) {};
+    rpc RemoveAluno (ID) returns (DatabaseResponse) {};
 }
 
 message Void{
@@ -20,6 +23,13 @@ message DatabaseResponse{
 }
 
 message Aluno{
-    string Nome = 1;
-    int32 GUB = 2;
+    ID escola = 1;
+    string nome = 2;
+    int32 gub = 3;
+    string professor = 4;
+}
+
+message Escola{
+    string nome = 1;
+    string endereco = 2;
 }
