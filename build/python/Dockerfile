@@ -15,6 +15,7 @@ FROM python_base AS python_cadastrador
 ADD server/cadastrador.py .
 ADD server/testcadastrador.py .
 ADD server/mysqlapi.py .
+ADD server/protos/cadastrador.proto protos/cadastrador.proto
 RUN python3 -m grpc_tools.protoc -Iprotos --python_out=. --grpc_python_out=. protos/cadastrador.proto
 
 ENTRYPOINT [ "python3", "cadastrador.py" ]
@@ -25,6 +26,7 @@ FROM python_base AS python_avaliador
 ADD server/avaliador.py .
 ADD server/testavaliador.py .
 ADD server/mysqlapi.py .
+ADD server/protos/avaliador.proto protos/avaliador.proto
 RUN python3 -m grpc_tools.protoc -Iprotos --python_out=. --grpc_python_out=. protos/avaliador.proto
 
 ENTRYPOINT [ "python3", "avaliador.py" ]
