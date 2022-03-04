@@ -3,12 +3,15 @@ import grpc
 import avaliador_pb2
 import avaliador_pb2_grpc
 
-from mysqlapi import MySQLAPI
+from mysqlapi import MySQLAPI, TABLE_ALUNO, TABLE_AVALIACAO, TABLE_ESCOLA
 
 
 class AvaliadorServicer(avaliador_pb2_grpc.AvaliadorServicer):
     def __init__(self):
         self._mysql = MySQLAPI('bancodedados', 'didynDB', 'root', 'didyn')
+
+    def InsereNota(self, request, context):
+        return avaliador_pb2.DatabaseResponse()
 
 
 def serve():
