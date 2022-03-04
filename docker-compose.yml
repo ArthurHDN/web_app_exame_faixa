@@ -13,8 +13,20 @@ services:
   cadastrador:
     container_name: cadastrador
     build:
-      dockerfile: build/cadastrador/Dockerfile
+      dockerfile: build/python/Dockerfile
       context: .
+      target: python_cadastrador
+    networks:
+      - backend
+    depends_on:
+      - "bancodedados"
+
+  avaliador:
+    container_name: avaliador
+    build:
+      dockerfile: build/python/Dockerfile
+      context: .
+      target: python_avaliador
     networks:
       - backend
     depends_on:
@@ -23,7 +35,7 @@ services:
   bancodedados:
     container_name: bancodedados
     build:
-      dockerfile: build/bancodedados/Dockerfile
+      dockerfile: build/mysql/Dockerfile
       context: .
     environment:
       - MYSQL_ROOT_HOST='%'

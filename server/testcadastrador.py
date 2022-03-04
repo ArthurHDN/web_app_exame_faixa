@@ -8,6 +8,7 @@ from google.protobuf.json_format import MessageToJson
 
 
 class TestCadastrador(unittest.TestCase):
+    
     _stub = None
     _academia_diomar = cadastrador_pb2.Escola(nome='Academia Diomar TKD', endereco='Av. Dr. Cincinato Cajado Braga')
     _aluno_joao = cadastrador_pb2.Aluno(escola=cadastrador_pb2.ID(id=1), nome='Joao', gub=5, professor='Petro')

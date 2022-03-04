@@ -22,7 +22,7 @@ ENV MYSQL_ROOT_HOST %
 # ENV MYSQL_PASSWORD didyn
 # ENV MYSQL_DATABASE didynDB
 
-ADD build/bancodedados/*.sql .
+ADD build/mysql/*.sql .
 RUN chmod 755 *.sql
 RUN /etc/init.d/mysql start && \
     mysql -uroot < init_db.sql

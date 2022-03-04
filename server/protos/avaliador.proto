@@ -1,0 +1,19 @@
+syntax = "proto3";
+package avaliador;
+
+service Avaliador{
+    rpc InsereNota (Nota) returns (DatabaseResponse) {};
+}
+
+message Void{
+
+}
+
+message Nota{
+    int32 valor = 1;
+    string nome = 2;
+}
+
+message DatabaseResponse{
+    string message = 1;
+}
