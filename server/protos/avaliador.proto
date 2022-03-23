@@ -2,16 +2,28 @@ syntax = "proto3";
 package avaliador;
 
 service Avaliador{
+    rpc CriaAvaliacao (NovaAvaliacao) returns (DatabaseResponse) {};
     rpc InsereNota (Nota) returns (DatabaseResponse) {};
+    rpc RemoveAvaliacao (ID) returns (DatabaseResponse) {};
 }
 
 message Void{
 
 }
 
+message ID{
+    int32 id=1;
+}
+
+message NovaAvaliacao{
+    ID aluno = 1;
+    string mestre = 2;
+}
+
 message Nota{
     int32 valor = 1;
     string nome = 2;
+    ID aluno = 3;
 }
 
 message DatabaseResponse{
