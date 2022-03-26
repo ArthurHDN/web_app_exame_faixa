@@ -4,6 +4,7 @@ package avaliador;
 service Avaliador{
     rpc CriaAvaliacao (NovaAvaliacao) returns (DatabaseResponse) {};
     rpc InsereNota (Nota) returns (DatabaseResponse) {};
+    // rpc ListaAvaliacao () resturns () {};
     rpc RemoveAvaliacao (ID) returns (DatabaseResponse) {};
 }
 
