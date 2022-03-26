@@ -9,6 +9,18 @@ services:
   #   volumes:
   #     - ./node_volume/:/opt/node_volume/
   #   command: bash -c "cd /opt/node_volume/ceep && npm start"
+
+  controlador:
+    container_name: controlador
+    build:
+      dockerfile: build/python/Dockerfile
+      context: .
+      target: python_controlador
+    networks:
+      - backend
+    depends_on:
+      - "cadastrador"
+      - "avaliador"
   
   cadastrador:
     container_name: cadastrador

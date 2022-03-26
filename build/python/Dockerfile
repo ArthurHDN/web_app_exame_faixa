@@ -30,3 +30,11 @@ ADD server/protos/avaliador.proto protos/avaliador.proto
 RUN python3 -m grpc_tools.protoc -Iprotos --python_out=. --grpc_python_out=. protos/avaliador.proto
 
 ENTRYPOINT [ "python3", "avaliador.py" ]
+
+
+######################################
+FROM python_base AS python_controlador
+ADD server/controlador.py .
+ADD server/protos/ protos/
+RUN python3 -m grpc_tools.protoc -Iprotos --python_out=. --grpc_python_out=. protos/
+ENTRYPOINT [ "python3", "controlador.py" ]
